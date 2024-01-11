@@ -4,17 +4,32 @@ pipeline {
     stages {
         stage('initialize') {
             steps {
-                sh terraform init
+                'sh terraform init'
             }
         }
-        stage('test') {
+        stage('format the code') {
             steps {
-                echo 'Hello test'
+                sh 'terraform format'
             }
         }
-         stage('package') {
+         stage('validate') {
             steps {
-                echo 'Hello package'
+                 sh 'terraform validate'
+            }
+        }
+       stage('validate') {
+            steps {
+                 sh 'terraform validate'
+            }
+        }
+      stage('plan') {
+            steps {
+                 sh 'terraform plan'
+            }
+        }  
+        stage('apply') {
+            steps {
+                 sh 'terraform apply'
             }
         }
     }
