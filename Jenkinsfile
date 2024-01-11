@@ -21,7 +21,7 @@ pipeline {
             sh 'plan'
         }
     }
-    stage(){destroy
+    stage(destroy){
         steps{
             sh 'destroy --auto -approve'
         }
