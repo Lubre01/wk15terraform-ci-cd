@@ -18,12 +18,12 @@ pipeline {
     }
     stage(plan) {
         steps{
-            sh 'plan'
+            sh 'terraform plan'
         }
     }
     stage(destroy){
         steps{
-            sh 'destroy --auto -approve'
+            sh 'terraform destroy --auto -approve'
         }
     }
 
